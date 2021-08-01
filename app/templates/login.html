@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block content %}
+<h1 id="project" class="netviz"><span id="net">Net</span><span id="viz">Viz</span>
+</h1>
+
+<form id=login_form action="" method="post" novalidate>
+    <h2> Sign In</h2>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }}<br> {{ form.username(size=32) }}<br> {% for error in form.username.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+    </p>
+    <p>
+        {{ form.password.label }}<br> {{ form.password(size=32) }}<br> {% for error in form.password.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+    </p>
+    <p id="remember-me" class="chk-box">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+    <p id="login-button" class="button">{{ form.submit() }}</p>
+</form>
+{% endblock %}

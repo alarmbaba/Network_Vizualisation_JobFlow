@@ -1,0 +1,84 @@
+{
+	'name': 'Customer', 
+	'Customer Name': 'Allison Kelemen', 
+	'Customer ID': 1002, 
+	'Gender': 'Female', 
+	'Customer Type': 'Individual', 
+	'DOB': '1986-10-14', 
+	'Country': 'Australia', 
+	'children': 
+	[
+		{
+			'name': 'Accounts', 
+			'Description': ['Hover on top of the linked items for more details.'], 
+			'children': 
+			[
+				{
+					'name': 'AC00002', 
+					'Account Type': 'Savings Account', 
+					'Available Balance': '1124.12', 
+					'children': 
+					[
+						{
+							'name': 'TRN00008', 
+							'Transaction Type': 'DEBIT', 
+							'Transaction Date': '2018-07-28', 
+							'Transaction Amount': 18.21
+						}
+					]
+				}, 
+				{
+					'name': 'AC00008', 
+					'Account Type': 'Savings Account', 
+					'Available Balance': '1130.12', 
+					'children': 
+					[
+						{
+							'name': 'TRN00014', 
+							'Transaction Type': 'DEBIT', 
+							'Transaction Date': '2018-08-03', 
+							'Transaction Amount': 24.21
+						}
+					]
+				}
+			]
+		}, 
+		{
+			'name': 'Address', 
+			'Description': ['Hover on top of the linked items for more details.'], 
+			'children': 
+			[
+				{
+					'name': 'Residential', 
+					'Detail Address': '27 Glendonbrook Road,Reedy Creek,Queensland,4357'
+				}
+			]
+		}, 
+		{
+			'name': 'Documents', 
+			'Description': ['Hover on top of the linked items for more details.'], 
+			'children': 
+			[
+				{
+					'name': 'PASSPORT', 
+					'Identification Number': 'CID00002'
+				}
+			]
+		}, 
+		{
+			'name': 'Contacts', 
+			'Description': ['Hover on top of the linked items for more details.'], 
+			'children': 
+			[
+				{
+					'name': 'Phone', 
+					'Phone Number': '61254487890'
+				}, 
+				{
+					'name': 'email', 
+					'eMail ID': 'N/A'
+				}
+			]
+		}
+	]
+}

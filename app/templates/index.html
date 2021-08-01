@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 id="welcome-user">Hi, <span id="user_name" >{{ current_user.username }}</span></h1>
+
+<div class="container">
+    <form class="autocomplete-form" action="/search" method="POST">
+        <input id="autocomplete" type="text" name="autocomplete" class="form-control"
+            placeholder="Search for Flow Name or Job ID"
+            onkeyup="searchAutoComplete(this.value)">
+        <button id="search-button" type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <p id="tooltip-search-bar"> Enter minimum of two characters for suggestions.</p>
+</div>
+
+{% if resulted_dict %} {% if resulted_dict|length > 0 %}
+<div>
+    <table class="search_table" id="search_result_table">
+        <caption id="table_caption">Number of records shown for <span>{{flow_search}}, {{resulted_dict|length}} </span></caption>
+        <tr>
+            <th id="table-flow_name"> Customer ID </th>
+            <th id="table-job_id"> Customer Name </th>            
+        </tr>
+        {% for result in resulted_dict %}
+        <tr class="table-data">
+            <td id = "table-link"><a href="{{url_for('graph_generation',flow_search = result.flow_name)}}"> {{ result.flow_name }}</a> </td>
+            <td> {{ result.job_id }}</td>            
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %} {% elif flow_search|length > 0 %}
+<h3 id="no_records">No records found for <span id="flow_search">{{flow_search}}</span></h3>
+{% endif %} {% endblock %}
+
+{% macro new_line(input_string) %}
+{% if input_string %}
+{% for line in input_string.split( '|' ) %}
+{{ line }}
+<br />
+{% endfor %}
+{% else %}
+{{input_string}}
+{% endif %}
+{% endmacro %}

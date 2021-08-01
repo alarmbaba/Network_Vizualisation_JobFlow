@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="fullGraph">
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript">
+        var root = "{{ data | safe }}"
+        var images_path = "{{ url_for('static', filename='graph_imgs') }}"
+    </script>
+    <h2 id="graph-title"> Network generated for {{flow_search}}</h2>
+    <script type="text/javascript" src="{{ url_for('static', filename='graph_gen.js') }}"></script>
+    <div id="sliderGroup">
+        <table id="sliderTable">
+            <tr>
+                <th class="tableTitle" id="tableHeader">Effects</th>
+                <th class="tableTitle" id="tableHeaderBlank">Values</th>
+            </tr>
+            <tr>
+                <td> Node Distance </td>
+                <td><input type="range" min="1" max="100" value="50" step="10" class=" slider " id="NodeDistance "
+                        onchange="update_nodeDistance(this.value) "></td>
+            </tr>
+            <tr>
+                <td> Attraction </td>
+                <td><input type="range" min="-3000" max="0" value="-1500" step="300" class=" slider " id="NodeDistance "
+                        onchange="update_attraction(this.value) "></td>
+            </tr>
+            <tr>
+                <td> Stiffness </td>
+                <td><input type="range" min=".1" max="1" value=".5" step=".01" class=" slider " id="NodeDistance "
+                        onchange="update_stiffness(this.value) "></td>
+            </tr>
+            <tr>
+                <td> Hold Elements </td>
+                <td><input type="checkbox" id="element_hold" checked onchange="element_hold()"></td>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}
